@@ -53,7 +53,7 @@
   }
 
   // Countdown target: update this date/time for the real wedding.
-  const weddingDate = new Date('2026-11-30T10:30:00+05:30').getTime();
+  const weddingDate = new Date('2026-12-14T08:21:00+05:30').getTime();
   function updateCountdown() {
     const distance = Math.max(0, weddingDate - Date.now());
     const values = {
@@ -242,10 +242,10 @@
   document.getElementById('saveDate').addEventListener('click', () => {
     const ics = [
       'BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//Wedding Invitation//EN',
-      'BEGIN:VEVENT','UID:wedding-20261130@example.com',
-      'DTSTAMP:20261011T000000Z','DTSTART:20261130T050000Z',
-      'DTEND:20261130T080000Z','SUMMARY:Amara & Arjun Wedding',
-      'LOCATION:Bengaluru, Karnataka','DESCRIPTION:We look forward to celebrating with you.',
+      'BEGIN:VEVENT','UID:wedding-20261214@example.com',
+      'DTSTAMP:20261011T000000Z','DTSTART:20261214T021100Z',
+      'DTEND:20261214T051100Z','SUMMARY:Arpita & Pranav Wedding',
+      'LOCATION:G M Convention Centre, Bengaluru','DESCRIPTION:We look forward to celebrating with you.',
       'END:VEVENT','END:VCALENDAR'
     ].join('\r\n');
     const blob = new Blob([ics], { type: 'text/calendar;charset=utf-8' });
