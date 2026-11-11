@@ -74,6 +74,7 @@
   const canvas = document.getElementById('scratchCanvas');
   const ctx = canvas.getContext('2d', { willReadFrequently: true });
   const wrap = canvas.parentElement;
+  const scratchHint = document.querySelector('.scratch-footnote').textContent;
   let drawing = false, revealed = false, lastPoint = null, baselineMask = null, baselinePixels = 0;
 
   function starPath(context, w, h) {
@@ -196,7 +197,8 @@
       wrap.style.touchAction = 'pan-y';
       canvas.style.touchAction = 'pan-y';
       setTimeout(() => { canvas.style.display = 'none'; }, 920);
-      document.querySelector('.scratch-footnote').textContent = 'A little glimpse of forever, just for you ✦';
+      document.querySelector('.scratch-footnote').textContent = 'See you there ✦';
+      document.getElementById('countdown').classList.add('is-visible');
     }
   }
 
@@ -231,6 +233,8 @@
   window.addEventListener('pageshow', () => {
     // Always start fresh, including when Safari restores this page from its back/forward cache.
     revealed = false;
+    document.getElementById('countdown').classList.remove('is-visible');
+    document.querySelector('.scratch-footnote').textContent = scratchHint;
     drawing = false;
     lastPoint = null;
     requestAnimationFrame(paintFoil);
@@ -240,18 +244,25 @@
   setTimeout(paintFoil, 250);
 
   document.getElementById('saveDate').addEventListener('click', () => {
+    // Times come from weddingDate (the same moment the countdown uses), written in UTC.
+    const toIcsTime = ms => new Date(ms).toISOString().replace(/[-:]/g, '').replace(/\.\d{3}/, '');
+    const eventLength = 3 * 60 * 60 * 1000; // 3 hours
     const ics = [
       'BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//Wedding Invitation//EN',
       'BEGIN:VEVENT','UID:wedding-20261214@example.com',
-      'DTSTAMP:20261011T000000Z','DTSTART:20261214T021100Z',
-      'DTEND:20261214T051100Z','SUMMARY:Arpita & Pranav Wedding',
-      'LOCATION:G M Convention Centre, Bengaluru','DESCRIPTION:We look forward to celebrating with you.',
+      'DTSTAMP:' + toIcsTime(Date.now()),
+      'DTSTART:' + toIcsTime(weddingDate),
+      'DTEND:' + toIcsTime(weddingDate + eventLength),
+      'SUMMARY:Arpita & Pranav Wedding',
+      'LOCATION:G M Convention Centre\\, Bengaluru','DESCRIPTION:We look forward to celebrating with you.',
       'END:VEVENT','END:VCALENDAR'
     ].join('\r\n');
     const blob = new Blob([ics], { type: 'text/calendar;charset=utf-8' });
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a'); a.href = url; a.download = 'wedding-save-the-date.ics';
-    document.body.appendChild(a); a.click(); a.remove(); URL.revokeObjectURL(url);
+    document.body.appendChild(a); a.click(); a.remove();
+    // Give Safari and Firefox a moment to start the download before freeing the file.
+    setTimeout(() => URL.revokeObjectURL(url), 1000);
   });
 
   // Slow, graceful reveals for invitation sections only. The opening cover is untouched.

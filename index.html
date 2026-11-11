@@ -7,7 +7,7 @@
   <title>A Wedding Invitation</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Allura&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -21,17 +21,18 @@
         <div class="cover-botanical botanical-right" aria-hidden="true">
           <svg viewBox="0 0 220 350"><g fill="none" stroke="#b7c19b" stroke-width="1.8"><path d="M205 330 Q135 220 45 18"/><path d="M166 270 Q206 235 197 202 Q158 215 166 270Z"/><path d="M144 229 Q95 216 90 176 Q135 185 144 229Z"/><path d="M124 183 Q173 164 168 128 Q125 143 124 183Z"/><path d="M101 135 Q60 122 55 86 Q93 97 101 135Z"/><path d="M80 90 Q117 72 109 39 Q76 57 80 90Z"/><path d="M179 292 Q137 294 129 260 Q166 260 179 292Z"/></g></svg>
         </div>
-        <div class="cover-photo-frame" aria-label="Couple photo">
-          <div class="cover-photo-inner">
-            <img src="../couple-photo.jpg" alt="Arpita and Pranav" onerror="this.style.display='none'" />
+        <div class="cover-layout">
+          <div class="cover-photo-frame" role="img" aria-label="Couple photo">
+            <div class="cover-photo-inner">
+              <img src="couple-photo.jpg" alt="Arpita and Pranav" onerror="this.style.display='none'">
+            </div>
           </div>
-        </div>
-        <div class="cover-copy">
-          <p class="eyebrow">YOU ARE INVITED</p>
-          <h1><span>Arpita</span><i>&</i><span>Pranav</span></h1>
-          <div class="ornament"><span></span><b>❦</b><span></span></div>
-          <p class="cover-date">DEAR FRIENDS,</p>
-          <p class="cover-note">We invite you to celebrate with us</p>
+          <div class="cover-copy">
+            <p class="eyebrow">A NEW CHAPTER BEGINS</p>
+            <h1><span>Arpita</span><i>&amp;</i><span>Pranav</span></h1>
+            <div class="ornament"><span></span><b>❦</b><span></span></div>
+            <p class="cover-note">Of all the roads we've walked, this one leads home — to each other.</p>
+          </div>
         </div>
         <div class="flower-corner flower-a">✿</div><div class="flower-corner flower-b">✿</div>
       </div>
@@ -47,7 +48,7 @@
       <button class="open-seal" id="openButton" type="button" aria-label="Tap to open wedding invitation">
         <span class="seal-top">✦</span><span class="seal-label">TAP TO<br>OPEN</span><span class="seal-bottom">❦</span>
       </button>
-      <button class="scroll-prompt" id="scrollPrompt" type="button" aria-label="Scroll down to view the invitation">SCROLL DOWN TO VIEW MORE <span>↓</span></button>
+      <button class="scroll-prompt" id="scrollPrompt" type="button" aria-label="Your invitation awaits — scroll down to view it">YOUR INVITATION AWAITS <span aria-hidden="true">↓</span></button>
       <button class="skip-opening" id="skipOpening" type="button">Skip intro ↓</button>
     </section>
 
@@ -60,52 +61,41 @@
           <div class="hero-content">
             <p class="script-small">We're getting married</p>
             <div class="tiny-heart">✦</div>
-            <h2><span>Arpita</span><em>&amp;</em><span>Pranav</span></h2>
-            <p class="family-line">We invite you to celebrate our wedding</p>
+            <div class="welcome-copy">
+              <p>A day to remember,<br>a moment to cherish,<br>and a time to celebrate</p>
+              <p>as our lives are tuned together in a beautiful &amp; melodious wedlock.</p>
+              <p>Make our moments memorable with your gracious presence.</p>
+              <p class="welcome-closing">Do come and bless us.</p>
+              <p class="welcome-signature"><span>Arpita</span> <em>&amp;</em> <span>Pranav</span></p>
+            </div>
             <div class="hero-rule"><span>❦</span></div>
-            <p class="hero-date">MONDAY, 14 DECEMBER 2026</p>
-            <p class="hero-place">Bengaluru, Karnataka</p>
           </div>
           <div class="garden-bottom" aria-hidden="true"><span>✿</span><span>❀</span><span>✿</span><span>❀</span><span>✿</span></div>
         </div>
       </section>
 
-      <section class="welcome section-paper">
-        <div class="section-ornament">— <span>♥</span> —</div>
-        <p class="welcome-copy">Dear Friends,<br><br>A day to remember, A moment to cherish and A time to celebrate as our life is getting tuned together in a beautiful &amp; melodious wedlock, Make our moments memorable with your gracious presence.... Do come and bless us....</p>
-        <div class="section-ornament">— <span>❦</span> —</div>
-      </section>
-
       <section class="scratch-section section-paper">
-        <p class="script-heading">A little surprise</p>
-        <div class="section-ornament">— <span>♥</span> —</div>
-        <p class="scratch-instruction">Scratch to reveal</p>
+        <p class="script-heading">Save the date</p>
+        <p class="scratch-instruction">A day written in the stars</p>
         <div class="scratch-star-wrap">
           <div class="revealed-star" aria-live="polite">
             <svg viewBox="0 0 240 230" role="img" aria-label="Star containing the wedding date">
               <defs><linearGradient id="starFill" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#7b8765"/><stop offset="1" stop-color="#354936"/></linearGradient></defs>
               <path d="M120 12 L148 79 L221 84 L165 132 L182 204 L120 165 L58 204 L75 132 L19 84 L92 79 Z" fill="url(#starFill)" stroke="#c5ad73" stroke-width="2.5"/>
-              <text x="120" y="105" text-anchor="middle" fill="#f5e9ce" font-family="Cormorant Garamond,serif" font-size="15">SAVE THE DATE</text>
-              <text x="120" y="128" text-anchor="middle" fill="#fff8e9" font-family="Playfair Display,serif" font-size="15">14 · 12 · 2026</text>
-              <text x="120" y="148" text-anchor="middle" fill="#f5e9ce" font-family="Cormorant Garamond,serif" font-size="12">Our forever begins</text>
+              <text x="120" y="126" text-anchor="middle" fill="#fff8e9" font-family="Playfair Display,Georgia,serif" font-size="17" letter-spacing=".5">14 · 12 · 2026</text>
             </svg>
           </div>
           <canvas id="scratchCanvas" aria-label="Scratch the gold foil with your finger or mouse to reveal the date"></canvas>
           <span class="scratch-shine" aria-hidden="true">✧</span>
         </div>
-        <button class="save-date" id="saveDate">♧ &nbsp; SAVE THE DATE</button>
-        <p class="scratch-footnote">Drag your finger or mouse across the gold star to reveal the date ✦</p>
-      </section>
-
-      <section class="countdown-section section-paper">
-        <p class="script-heading">Counting down to forever</p>
-        <div class="section-ornament">— <span>♥</span> —</div>
-        <div class="countdown" id="countdown">
+        <div class="countdown" id="countdown" aria-label="Time left until the wedding">
           <div><strong id="days">00</strong><span>DAYS</span></div>
           <div><strong id="hours">00</strong><span>HOURS</span></div>
           <div><strong id="minutes">00</strong><span>MINUTES</span></div>
           <div><strong id="seconds">00</strong><span>SECONDS</span></div>
         </div>
+        <button class="save-date" id="saveDate" type="button">♧ &nbsp; ADD TO CALENDAR</button>
+        <p class="scratch-footnote">Gently scratch the star to reveal it</p>
       </section>
 
       <section class="timeline-section section-paper">
@@ -124,8 +114,9 @@
           <div class="venue-art"><span>❦</span><span>✿</span><span>❦</span></div>
           <p class="eyebrow">THE WEDDING VENUE</p>
           <h2>"G M Convention Centre"</h2>
+          <p class="venue-former">(formerly Jayanth Convention Centre)</p>
           <p>No. 79, Railway Layout, 2nd Stage,<br>Near Ullal RTO, Ullal Main Road,<br>Bengaluru – 560 110.</p>
-          <a class="map-link" href="https://maps.google.com/?q=G+M+Convention+Centre+Ullal+Main+Road+Bengaluru" target="_blank" rel="noopener">OPEN IN GOOGLE MAPS ↗</a>
+          <a class="map-link" href="https://maps.app.goo.gl/CnLeqxE5op1NwCyn6" target="_blank" rel="noopener">OPEN IN GOOGLE MAPS ↗</a>
         </div>
       </section>
 
